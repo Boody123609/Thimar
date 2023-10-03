@@ -51,6 +51,8 @@ class _LoginPageState extends State<LoginPage> {
               text: "رقم الجوال",
               imagepath: "assets/images/Phone.svg",
               isPhone: true,
+
+
             ),
             SizedBox(
               height: 16.h,

@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leadingWidth: 100.w,
+        leadingWidth: 120.w,
         leading: Padding(
           padding: const EdgeInsets.only(right: 16),
           child: Row(
@@ -37,12 +37,12 @@ class _HomePageState extends State<HomePage> {
             children: [
               Image.asset(
                 "assets/images/logo.png",
-                height: 20,
-                width: 20,
+                height: 20.h,
+                width: 20.w,
                 fit: BoxFit.scaleDown,
               ),
               SizedBox(
-                width: 3,
+                width: 3.w,
               ),
               Text(
                 "سلة ثمار",
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
             height: 164.h,
             child: CarouselSlider(
               options: CarouselOptions(
-                  height: 400.0,
+                  height: 400.h,
                   onPageChanged: (index, reason) {
                     currentIndex = index;
                     setState(() {});
@@ -169,22 +169,26 @@ class _HomePageState extends State<HomePage> {
               child: ListView.separated(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 itemBuilder: (context, index) => Container(
-
                   width: 102.w,
                   child: Column(
                     children: [
                       Expanded(
                         child: Container(
-                          padding: EdgeInsets.all(15.r),
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            color: Color(0xffa12cff*(index+20)),
-                            borderRadius: BorderRadius.circular(10.r)
-                          ),
-                            child: Image.network("https://www.hasanbabamanav.com/Files/bg-crm-program-8469-15-04-2021-12-53-37.png")),
+                            padding: EdgeInsets.all(15.r),
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                                color: Color(0xffa12cff * (index + 20)),
+                                borderRadius: BorderRadius.circular(10.r)),
+                            child: Image.network(
+                                "https://www.hasanbabamanav.com/Files/bg-crm-program-8469-15-04-2021-12-53-37.png")),
                       ),
-                      SizedBox(height: 7,),
-                      Text("الخضار",style: TextStyle(fontSize: 20),),
+                      SizedBox(
+                        height: 7.h,
+                      ),
+                      Text(
+                        "الخضار",
+                        style: TextStyle(fontSize: 20),
+                      ),
                     ],
                   ),
                 ),

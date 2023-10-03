@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: getMaterialColor(0xff4C8613),
 
           ),
-          home: HomePage(),
+          home: LoginPage(),
         );
       }
     );

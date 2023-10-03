@@ -26,9 +26,7 @@ class Input extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
-          width: 16,
-        ),
+
         if (isPhone)
           Padding(
             padding: const EdgeInsets.only(left: 9.0),
@@ -54,10 +52,13 @@ class Input extends StatelessWidget {
               ),
             ),
           ),
+
         Expanded(
           child: TextFormField(
+            keyboardType: isPhone?TextInputType.phone:TextInputType.text,
 
             decoration: InputDecoration(
+
 
               prefixIcon: Padding(
                 padding: const EdgeInsets.all(20),
