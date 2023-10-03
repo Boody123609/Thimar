@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class AppBCScreen extends StatelessWidget {
   String text;
 
-   AppBCScreen({Key? key,required this.text}) : super(key: key);
+  AppBCScreen({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,10 @@ class AppBCScreen extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Color(0xff4C8613).withOpacity(.13),
                 borderRadius: BorderRadius.circular(16)),
-            child: SvgPicture.asset("assets/images/arrow.svg",fit: BoxFit.scaleDown,),
+            child: SvgPicture.asset(
+              "assets/images/arrow.svg",
+              fit: BoxFit.scaleDown,
+            ),
           ),
           title: Text(
             text,
@@ -31,7 +34,6 @@ class AppBCScreen extends StatelessWidget {
                 color: Color(0xff4C8613)),
           ),
           centerTitle: true,
-
         ),
       ),
     );

@@ -2,9 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:thimar_application/core/design/castama/btn.dart';
 import 'package:thimar_application/core/design/castama/input.dart';
-
-import '../../../../core/design/castama/app_bar_custam.dart';
+import 'package:thimar_application/models/category.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,6 +20,33 @@ class _HomePageState extends State<HomePage> {
     "https://mf.b37mrtl.ru/media/pics/2021.07/original/60dda1fd4c59b735ee78b3a2.jpg",
     "https://mf.b37mrtl.ru/media/pics/2022.02/original/621743384c59b76a02442e3e.jpg",
     "https://media.gemini.media/img/large/2022/1/31/2022_1_31_15_17_26_98.jpg",
+  ];
+  List<MyCategory> kinds = [
+    MyCategory(
+        id: 0,
+        text: "الخضار",
+        image:
+            "https://avatars.mds.yandex.net/i?id=d88cd7c2346ae39dd9de80a33f51dbea-5317911-images-thumbs&n=13"),
+    MyCategory(
+        id: 1,
+        text: "الفواكه",
+        image:
+            "https://avatars.mds.yandex.net/i?id=d88cd7c2346ae39dd9de80a33f51dbea-5317911-images-thumbs&n=13"),
+    MyCategory(
+        id: 2,
+        text: "اللحوم",
+        image:
+            "https://avatars.mds.yandex.net/i?id=d88cd7c2346ae39dd9de80a33f51dbea-5317911-images-thumbs&n=13"),
+    MyCategory(
+        id: 3,
+        text: "البهارات",
+        image:
+            "https://avatars.mds.yandex.net/i?id=d88cd7c2346ae39dd9de80a33f51dbea-5317911-images-thumbs&n=13"),
+    MyCategory(
+        id: 4,
+        text: "التمور",
+        image:
+            "https://avatars.mds.yandex.net/i?id=d88cd7c2346ae39dd9de80a33f51dbea-5317911-images-thumbs&n=13"),
   ];
   int currentIndex = 0;
 
@@ -165,39 +192,147 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SizedBox(
-              height: 103.h,
-              child: ListView.separated(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                itemBuilder: (context, index) => Container(
-                  width: 102.w,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Container(
-                            padding: EdgeInsets.all(15.r),
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                                color: Color(0xffa12cff * (index + 20)),
-                                borderRadius: BorderRadius.circular(10.r)),
-                            child: Image.network(
-                                "https://www.hasanbabamanav.com/Files/bg-crm-program-8469-15-04-2021-12-53-37.png")),
-                      ),
-                      SizedBox(
-                        height: 7.h,
-                      ),
-                      Text(
-                        "الخضار",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ],
+            height: 103.h,
+            child: ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              itemBuilder: (context, index) => Container(
+                width: 75.w,
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Container(
+                          padding: EdgeInsets.all(9),
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                              color: Color(0xffa12cff * (index + 30))
+                                  .withOpacity(.5),
+                              borderRadius: BorderRadius.circular(10.r)),
+                          child: Image.network(
+                            kinds[index].image,
+                          )),
+                    ),
+                    SizedBox(
+                      height: 7.h,
+                    ),
+                    Text(
+                      kinds[index].text,
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                ),
+              ),
+              scrollDirection: Axis.horizontal,
+              itemCount: kinds.length,
+              separatorBuilder: (context, index) => SizedBox(
+                width: 10.w,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(16.r),
+            child: Text(
+              "الاصناف",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+            ),
+          ),
+          GridView.builder(
+            padding: EdgeInsets.symmetric(horizontal: 16.h),
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 160 / 250,
+                mainAxisSpacing: 16.h,
+                crossAxisSpacing: 16.h),
+            itemBuilder: (context, index) => Container(
+              padding: EdgeInsets.all(9.r),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(17.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(.2),
+                      offset: Offset(0, 2),
+                      blurRadius: 11.r,
+                    )
+                  ]),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(11.r),
+                    child: Stack(
+                      alignment: AlignmentDirectional.topEnd,
+                      children: [
+                        Expanded(
+                          child: Image.network(
+                            "https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg",
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.w, vertical: 3.h),
+                          child: Text(
+                            "45%- ",
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(11.r),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                scrollDirection: Axis.horizontal,
-                itemCount: 5,
-                separatorBuilder: (context, index) => SizedBox(
-                  width: 16.w,
-                ),
-              ))
+                  SizedBox(
+                    height: 7.h,
+                  ),
+                  Text(
+                    "طماطم",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Theme.of(context).primaryColor),
+                  ),
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  Text(
+                    "السعر / 1كجم",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Theme.of(context).hintColor),
+                  ),
+                  Text.rich(TextSpan(children: [
+                    TextSpan(
+                      text: "45 ر.س",
+                      style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w700,
+                          color: Theme.of(context).primaryColor),
+                    ),
+                    TextSpan(
+                      text: " 56 ر.س",
+                      style: TextStyle(
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.w400,
+                          decoration: TextDecoration.lineThrough,
+                          color: Theme.of(context).primaryColor),
+                    ),
+                  ],),),
+                  BTN(isBig: false,
+                      text: "أضف للسلة", onPrees: (){})
+                ],
+              ),
+            ),
+            itemCount: 10,
+          )
         ],
       ),
     );

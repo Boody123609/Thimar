@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:thimar_application/screens/auth/login_in/view.dart';
+import 'package:thimar_application/screens/home/navbar.dart';
 import 'package:thimar_application/screens/home/pages/home/view.dart';
+import 'package:thimar_application/screens/main_screen/product_details/view.dart';
 import 'package:thimar_application/screens/splash/view.dart';
 
 import 'core/design/castama/app_bar_custam.dart';
@@ -31,10 +33,13 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
 
           theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+            androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
             primarySwatch: getMaterialColor(0xff4C8613),
+              hintColor:Color(0xff808080)
 
           ),
-          home: LoginPage(),
+          home: ProductDetailsScreen(),
         );
       }
     );
