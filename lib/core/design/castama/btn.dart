@@ -17,7 +17,7 @@ class BTN extends StatelessWidget {
         padding:  EdgeInsets.symmetric(horizontal: 16),
         child: ElevatedButton(
 
-          onPressed: () {},
+          onPressed: onPrees,
           child: Text(text,style: TextStyle(
             fontSize: 15,fontWeight: FontWeight.bold
           ),),

@@ -13,23 +13,21 @@ class ProductDetailsScreen extends StatefulWidget {
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   int num = 1;
   var data;
-  bool isLoading = true ;
+  bool isLoading = true;
 
   @override
   void initState() {
     getPruductDetails();
     super.initState();
   }
-  Future<void>getPruductDetails()async {
-    final response=await Dio().get("https://thimar.amr.aait-d.com/api/about");
+
+  Future<void> getPruductDetails() async {
+    final response = await Dio().get("https://thimar.amr.aait-d.com/api/about");
     print(response.data);
-    data=response.data["data"]["about"];
-    isLoading=false;
-    setState(() {
-
-    });
-
-}
+    data = response.data["data"]["about"];
+    isLoading = false;
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -213,15 +211,119 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           Divider(),
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
-            child: Text(
-              "تفاصيل المنتج",
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).primaryColor),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "تفاصيل المنتج",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).primaryColor),
+                ),
+                Text(
+                    "تعد الطماطم من النباتات العشبية الحولية، إلا أنه يمكن تحفيزها لتكوين نموات جديدة دائما عن طريق تعقيرها طالما توفرت الظروف البيئية الملائمة للنمو"),
+              ],
             ),
           ),
-          Text("")
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              children: [
+                Text(
+                  "التقيمات",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                      color: Theme.of(context).primaryColor),
+                ),
+                Spacer(),
+                Text(
+                  "عرض الكل",
+                  style: TextStyle(
+                      fontSize: 15, color: Theme.of(context).primaryColor),
+                ),
+              ],
+            ),
+          ),
+          ListTile(
+            trailing: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.network(
+                "https://cdn.allsquaregolf.com/pictures/pictures/001/346/603/large/user_31062_profile_picture.jpg",
+                width: 55.w,
+                height: 55.h,
+              ),
+            ),
+            title: Row(
+              children: [
+                Text("محمد علي",
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                Icon(
+                  Icons.star,
+                  color: Colors.yellow,
+                  size: 20,
+                ),
+                Icon(
+                  Icons.star,
+                  color: Colors.yellow,
+                  size: 20,
+                ),
+                Icon(
+                  Icons.star,
+                  color: Colors.yellow,
+                  size: 20,
+                ),
+                Icon(
+                  Icons.star,
+                  color: Colors.yellow,
+                  size: 20,
+                ),
+                Icon(
+                  Icons.star,
+                  size: 20,
+                  color: Colors.grey,
+                ),
+              ],
+            ),
+            subtitle: Text(
+                "بعد شراء المنتج، يمكنك إضافة تقييم ليستفيد منه عملاء آخرين في حال قرروا شراء نفس المنتج"),
+          ),
+          Divider(),
+          Container(
+            color: Theme.of(context).primaryColor,
+            width: double.infinity.w,
+            height: 50.h,
+            child: Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                      color: Color(0xff6AA431),
+                      borderRadius: BorderRadius.circular(16)),
+                  width: 35.w,
+                  height: 35.h,
+                  child: SvgPicture.asset(
+                    "assets/images/cart.svg",
+                    width: 20.w,
+                    height: 20.h,
+                  ),
+                ),
+                SizedBox(
+                  width: 10.w,
+                ),
+                Text(
+                  "إضافة إلي السلة",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      color: Colors.white),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );

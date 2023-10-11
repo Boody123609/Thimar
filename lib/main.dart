@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:thimar_application/core/design/castama/navigation.dart';
 import 'package:thimar_application/screens/auth/login_in/view.dart';
 import 'package:thimar_application/screens/home/navbar.dart';
+import 'package:thimar_application/screens/home/pages/fav/view.dart';
 import 'package:thimar_application/screens/home/pages/home/view.dart';
+import 'package:thimar_application/screens/main_screen/address/view.dart';
 import 'package:thimar_application/screens/main_screen/product_details/view.dart';
 import 'package:thimar_application/screens/splash/view.dart';
 
@@ -28,6 +31,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
       builder: (context,x) {
         return MaterialApp(
+          navigatorKey: navigetorKey,
           builder: (context, child) => Directionality(textDirection:TextDirection.rtl, child: child!),
 
           debugShowCheckedModeBanner: false,
@@ -39,7 +43,7 @@ class MyApp extends StatelessWidget {
               hintColor:Color(0xff808080)
 
           ),
-          home: ProductDetailsScreen(),
+          home: SplashScreen(),
         );
       }
     );

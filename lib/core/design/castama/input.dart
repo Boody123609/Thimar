@@ -7,6 +7,7 @@ import 'btn.dart';
 class Input extends StatelessWidget {
   final String text;
   final String imagepath;
+  final TextEditingController? controller;
   final bool isPhone;
   final bool isShown;
   final bool isSearch;
@@ -18,7 +19,7 @@ class Input extends StatelessWidget {
       required this.imagepath,
       this.isPhone = false,
       this.isShown = false,
-      this.isSearch = false,
+      this.isSearch = false,  this.controller,
      })
       : super(key: key);
 
@@ -55,6 +56,7 @@ class Input extends StatelessWidget {
 
         Expanded(
           child: TextFormField(
+            controller: controller,
             keyboardType: isPhone?TextInputType.phone:TextInputType.text,
 
             decoration: InputDecoration(

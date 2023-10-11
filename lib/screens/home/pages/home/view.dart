@@ -31,22 +31,22 @@ class _HomePageState extends State<HomePage> {
         id: 1,
         text: "الفواكه",
         image:
-            "https://avatars.mds.yandex.net/i?id=d88cd7c2346ae39dd9de80a33f51dbea-5317911-images-thumbs&n=13"),
+            "https://w.forfun.com/fetch/aa/aa8212667038eeb06e52ff485d02136f.jpeg?w=1470&r=0.5625"),
     MyCategory(
         id: 2,
         text: "اللحوم",
         image:
-            "https://avatars.mds.yandex.net/i?id=d88cd7c2346ae39dd9de80a33f51dbea-5317911-images-thumbs&n=13"),
+            "https://gabbismeats.co.za/wp-content/uploads/2020/03/3209-scaled.jpg"),
     MyCategory(
         id: 3,
         text: "البهارات",
         image:
-            "https://avatars.mds.yandex.net/i?id=d88cd7c2346ae39dd9de80a33f51dbea-5317911-images-thumbs&n=13"),
+            "https://wallpapers.com/images/featured-full/spices-4pngw1qa0xj352zc.jpg"),
     MyCategory(
         id: 4,
         text: "التمور",
         image:
-            "https://avatars.mds.yandex.net/i?id=d88cd7c2346ae39dd9de80a33f51dbea-5317911-images-thumbs&n=13"),
+            "https://www.jovoyparis.com/modules/beyonds_productcustomfieldsjovoy/views/img/features/139.jpg"),
   ];
   int currentIndex = 0;
 
@@ -207,8 +207,10 @@ class _HomePageState extends State<HomePage> {
                               color: Color(0xffa12cff * (index + 30))
                                   .withOpacity(.5),
                               borderRadius: BorderRadius.circular(10.r)),
-                          child: Image.network(
-                            kinds[index].image,
+                          child: Expanded(
+                            child: Image.network(
+                              kinds[index].image,
+                            ),
                           )),
                     ),
                     SizedBox(
@@ -264,10 +266,8 @@ class _HomePageState extends State<HomePage> {
                     child: Stack(
                       alignment: AlignmentDirectional.topEnd,
                       children: [
-                        Expanded(
-                          child: Image.network(
-                            "https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg",
-                          ),
+                        Image.network(
+                          "https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg",
                         ),
                         Container(
                           padding: EdgeInsets.symmetric(
@@ -326,8 +326,10 @@ class _HomePageState extends State<HomePage> {
                           color: Theme.of(context).primaryColor),
                     ),
                   ],),),
-                  BTN(isBig: false,
-                      text: "أضف للسلة", onPrees: (){})
+                  Expanded(
+                    child: BTN(isBig: false,
+                        text: "أضف للسلة", onPrees: (){}),
+                  )
                 ],
               ),
             ),
