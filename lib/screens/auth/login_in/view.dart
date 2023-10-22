@@ -7,6 +7,8 @@ import 'package:thimar_application/screens/auth/login_in/states.dart';
 import 'package:thimar_application/screens/home/navbar.dart';
 import '../../../core/design/castama/btn.dart';
 import '../../../core/design/castama/input.dart';
+import '../forget_password/view.dart';
+import '../sgin_up/view.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -71,7 +73,9 @@ class LoginPage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          navigateTo(ForgetPasswordPage());
+                        },
                         child: Text(
                           "نسيت كلمة المرور ؟",
                           style: TextStyle(fontSize: 16, color: Colors.black),
@@ -108,7 +112,9 @@ class LoginPage extends StatelessWidget {
                           color: Theme.of(context).primaryColor),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        navigateTo(SignUpPage());
+                      },
                       child: Text(
                         "تسجيل الأن",
                         style: TextStyle(

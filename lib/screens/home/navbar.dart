@@ -24,7 +24,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
   ];
   List <String>icons=[
     "home",
-    "note",
+    "orders",
     "notification",
     "fav",
     "accont",

@@ -5,8 +5,10 @@ import 'package:thimar_application/screens/auth/login_in/view.dart';
 import 'package:thimar_application/screens/home/navbar.dart';
 import 'package:thimar_application/screens/home/pages/fav/view.dart';
 import 'package:thimar_application/screens/home/pages/home/view.dart';
+import 'package:thimar_application/screens/home/pages/my_account/view.dart';
 import 'package:thimar_application/screens/main_screen/address/view.dart';
 import 'package:thimar_application/screens/main_screen/product_details/view.dart';
+import 'package:thimar_application/screens/profile/pages/profile_details/view.dart';
 import 'package:thimar_application/screens/splash/view.dart';
 
 import 'core/design/castama/app_bar_custam.dart';
