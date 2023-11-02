@@ -2,6 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:thimar_application/screens/main_screen/cart/view.dart';
+
+import '../../../core/design/castama/navigation.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({Key? key}) : super(key: key);
@@ -36,20 +39,25 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         elevation: 0,
         backgroundColor: Colors.white,
         leadingWidth: 70,
-        leading: Padding(
-          padding: const EdgeInsets.only(right: 16.0, top: 5, bottom: 5),
-          child: Container(
-            child: SvgPicture.asset(
-              "assets/images/arrow.svg",
-              height: 6.h,
-              width: 12.w,
-              fit: BoxFit.scaleDown,
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(right: 16.0, top: 5, bottom: 5),
+            child: Container(
+              child: SvgPicture.asset(
+                "assets/images/arrow.svg",
+                height: 6.h,
+                width: 12.w,
+                fit: BoxFit.scaleDown,
+              ),
+              width: 30.w,
+              height: 30.h,
+              decoration: BoxDecoration(
+                  color: Color(0xff4C8613).withOpacity(.13),
+                  borderRadius: BorderRadius.circular(16)),
             ),
-            width: 30.w,
-            height: 30.h,
-            decoration: BoxDecoration(
-                color: Color(0xff4C8613).withOpacity(.13),
-                borderRadius: BorderRadius.circular(16)),
           ),
         ),
         actions: [
@@ -292,36 +300,42 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 "بعد شراء المنتج، يمكنك إضافة تقييم ليستفيد منه عملاء آخرين في حال قرروا شراء نفس المنتج"),
           ),
           Divider(),
-          Container(
-            color: Theme.of(context).primaryColor,
-            width: double.infinity.w,
-            height: 50.h,
-            child: Row(
-              children: [
-                Container(
-                  padding: EdgeInsets.all(6),
-                  decoration: BoxDecoration(
-                      color: Color(0xff6AA431),
-                      borderRadius: BorderRadius.circular(16)),
-                  width: 35.w,
-                  height: 35.h,
-                  child: SvgPicture.asset(
-                    "assets/images/cart.svg",
-                    width: 20.w,
-                    height: 20.h,
+          GestureDetector(
+            onTap: (){
+              navigateTo(CartScreen());
+            },
+            child: Container(
+              color: Theme.of(context).primaryColor,
+              width: double.infinity.w,
+              height: 50.h,
+              child: Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(right: 16.w),
+                    padding: EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                        color: Color(0xff6AA431),
+                        borderRadius: BorderRadius.circular(16)),
+                    width: 35.w,
+                    height: 35.h,
+                    child: SvgPicture.asset(
+                      "assets/images/cart.svg",
+                      width: 20.w,
+                      height: 20.h,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 10.w,
-                ),
-                Text(
-                  "إضافة إلي السلة",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      color: Colors.white),
-                )
-              ],
+                  SizedBox(
+                    width: 30.w,
+                  ),
+                  Text(
+                    "إضافة إلي السلة",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Colors.white),
+                  )
+                ],
+              ),
             ),
           )
         ],

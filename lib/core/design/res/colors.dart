@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-MaterialColor getMaterialColor(int hex){
-  Color color=Color(hex);
+const primaryColor = Color(0xff4C8613);
+
+MaterialColor getMaterialColor(int hex) {
+  Color color = Color(hex);
   return MaterialColor(hex, {
     50: color.withOpacity(.1),
     100: color.withOpacity(.2),
@@ -14,5 +16,4 @@ MaterialColor getMaterialColor(int hex){
     800: color.withOpacity(.9),
     900: color.withOpacity(1),
   });
-
 }

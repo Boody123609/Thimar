@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:thimar_application/core/design/castama/btn.dart';
 import 'package:thimar_application/core/design/castama/input.dart';
+import 'package:thimar_application/core/design/castama/navigation.dart';
 import 'package:thimar_application/models/category.dart';
+import 'package:thimar_application/screens/main_screen/product_details/view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -246,91 +248,100 @@ class _HomePageState extends State<HomePage> {
                 childAspectRatio: 160 / 250,
                 mainAxisSpacing: 16.h,
                 crossAxisSpacing: 16.h),
-            itemBuilder: (context, index) => Container(
-              padding: EdgeInsets.all(9.r),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(17.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(.2),
-                      offset: Offset(0, 2),
-                      blurRadius: 11.r,
-                    )
-                  ]),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(11.r),
-                    child: Stack(
-                      alignment: AlignmentDirectional.topEnd,
-                      children: [
-                        Image.network(
-                          "https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg",
-                        ),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10.w, vertical: 3.h),
-                          child: Text(
-                            "45%- ",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+            itemBuilder: (context, index) => GestureDetector(
+              onTap: () {
+                navigateTo(ProductDetailsScreen());
+              },
+              child: Container(
+                padding: EdgeInsets.all(9.r),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(17.r),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(.2),
+                        offset: Offset(0, 2),
+                        blurRadius: 11.r,
+                      )
+                    ]),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(11.r),
+                      child: Stack(
+                        alignment: AlignmentDirectional.topEnd,
+                        children: [
+                          Image.network(
+                            "https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg",
                           ),
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
-                            borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(11.r),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10.w, vertical: 3.h),
+                            child: Text(
+                              "45%- ",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
                             ),
-                          ),
-                        )
-                      ],
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor,
+                              borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(11.r),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 7.h,
-                  ),
-                  Text(
-                    "طماطم",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Theme.of(context).primaryColor),
-                  ),
-                  SizedBox(
-                    height: 4.h,
-                  ),
-                  Text(
-                    "السعر / 1كجم",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: Theme.of(context).hintColor),
-                  ),
-                  Text.rich(TextSpan(children: [
-                    TextSpan(
-                      text: "45 ر.س",
+                    SizedBox(
+                      height: 7.h,
+                    ),
+                    Text(
+                      "طماطم",
                       style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w700,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
                           color: Theme.of(context).primaryColor),
                     ),
-                    TextSpan(
-                      text: " 56 ر.س",
+                    SizedBox(
+                      height: 4.h,
+                    ),
+                    Text(
+                      "السعر / 1كجم",
                       style: TextStyle(
-                          fontSize: 13.sp,
+                          fontSize: 16,
                           fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.lineThrough,
-                          color: Theme.of(context).primaryColor),
+                          color: Theme.of(context).hintColor),
                     ),
-                  ],),),
-                  Expanded(
-                    child: BTN(isBig: false,
-                        text: "أضف للسلة", onPrees: (){}),
-                  )
-                ],
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "45 ر.س",
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w700,
+                                color: Theme.of(context).primaryColor),
+                          ),
+                          TextSpan(
+                            text: " 56 ر.س",
+                            style: TextStyle(
+                                fontSize: 13.sp,
+                                fontWeight: FontWeight.w400,
+                                decoration: TextDecoration.lineThrough,
+                                color: Theme.of(context).primaryColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child:
+                          BTN(isBig: false, text: "أضف للسلة", onPrees: () {}),
+                    )
+                  ],
+                ),
               ),
             ),
             itemCount: 10,

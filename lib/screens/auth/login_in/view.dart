@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
                   },
                   listener: (BuildContext context, state) {
                     if (state is LoginSuccessStates) {
-                      navigateTo(NavBarScreen());
+                      navigateTo(NavBarScreen(),isBack: false);
                     }
                   },
                 ),

@@ -17,11 +17,16 @@ class BTN extends StatelessWidget {
         padding:  EdgeInsets.symmetric(horizontal: 16),
         child: ElevatedButton(
 
+
           onPressed: onPrees,
           child: Text(text,style: TextStyle(
+
             fontSize: 15,fontWeight: FontWeight.bold
           ),),
-          style: ElevatedButton.styleFrom(minimumSize: Size(double.infinity, isBig?60.h:30.h),
+          style: ElevatedButton.styleFrom(
+
+
+              minimumSize: isBig?Size(double.infinity, 60):Size(80, 40),
               shape: RoundedRectangleBorder(
 
                 borderRadius: BorderRadius.circular(15),

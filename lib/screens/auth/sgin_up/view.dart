@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/design/castama/btn.dart';
 import '../../../core/design/castama/input.dart';
-
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -18,8 +17,8 @@ class SignUpPage extends StatelessWidget {
                 bottom: 21, left: 136, right: 109, top: 20),
             child: Image.asset(
               "assets/images/logo.png",
-              width: 129,
-              height: 125,
+              height: 125.h,
+              width: 129.w,
             ),
           ),
           Text(
@@ -30,7 +29,7 @@ class SignUpPage extends StatelessWidget {
                 color: Theme.of(context).primaryColor),
           ),
           SizedBox(
-            height: 10,
+            height: 10.h,
           ),
           Text(
             "يمكنك تسجيل الدخول الأن",
@@ -39,11 +38,11 @@ class SignUpPage extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 28,
+            height: 28.h,
           ),
           Input(text: "اسم المستخدم", imagepath: "assets/images/person.svg"),
           SizedBox(
-            height: 16,
+            height: 16.h,
           ),
           Input(
             text: "رقم الجوال",
@@ -51,21 +50,21 @@ class SignUpPage extends StatelessWidget {
             isPhone: true,
           ),
           SizedBox(
-            height: 16,
+            height: 16.h,
           ),
           Input(text: "المدينة", imagepath: "assets/images/Report.svg"),
           SizedBox(
-            height: 16,
+            height: 16.h,
           ),
           Input(text: "كلمة المرور", imagepath: "assets/images/lock.svg"),
           SizedBox(
-            height: 16,
+            height: 16.h,
           ),
           Input(text: "تأكيد كلمة المرور", imagepath: "assets/images/lock.svg"),
           SizedBox(
-            height: 19,
+            height: 19.h,
           ),
-          BTN(text: "تسجيل", onPrees: (){}),
+          BTN(text: "تسجيل", onPrees: () {}),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -87,7 +86,6 @@ class SignUpPage extends StatelessWidget {
                   ))
             ],
           ),
-
         ],
       ),
     );

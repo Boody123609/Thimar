@@ -136,6 +136,27 @@ class _MyAccountPageState extends State<MyAccountPage> {
                   ],
                 ),
               ),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "تسجيل الخروج",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).primaryColor),
+                  ),
+                  Image.asset(
+                    "assets/images/turn off.png",
+                    width: 18.w,
+                    height: 18.h,
+                  )
+                ],
+              ),
             )
           ],
         ),
